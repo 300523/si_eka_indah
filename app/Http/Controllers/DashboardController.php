@@ -9,7 +9,7 @@ class DashboardController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Dashboard',
+            'title' => 'Dashboard | SI Eka Indah',
             'nav' => 'dashboard'
         ];
 

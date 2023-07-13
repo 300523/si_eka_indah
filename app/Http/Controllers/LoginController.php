@@ -15,7 +15,7 @@ class LoginController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Login',
+            'title' => 'Login | SI Eka Indah',
             'nav' => 'login'
         ];
         return view('backend.login.index', $data);

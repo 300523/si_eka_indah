@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -52,7 +53,7 @@ class LoginController extends Controller
                 'error' => $errors,
             ];
         } else {
-            //cek user dulu ke database
+            //cek email dulu ke database
             $query_email = DB::table('users')->select('*')->where('email', $email)->get();
             $user_mail = $query_email->toArray();
 
@@ -95,5 +96,16 @@ class LoginController extends Controller
         }
 
         echo json_encode($msg);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }

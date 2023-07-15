@@ -32,7 +32,7 @@ $(document).ready(function () {
             },
             complete: function () {
                 $(".btnsubmit").removeAttr("disable");
-                $(".btnsubmit").html("Ubah");
+                $(".btnsubmit").html("Login");
             },
             success: function (response) {
                 if (response.error) {

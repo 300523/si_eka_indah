@@ -60,7 +60,7 @@
 
               <div class="card-body">
                 <div class="alert-message"></div>
-                <form method="POST" id="form-login">
+                <form id="form-login">
                   @csrf
                   <div class="form-group">
                     <label for="email">Email</label>
@@ -80,7 +80,7 @@
                     <label for="show-password"> Show password </label>
                   </div>
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4" class="btnsubmit">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block btnsubmit" tabindex="4">
                       Login
                     </button>
                   </div>

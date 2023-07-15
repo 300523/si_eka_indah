@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -20,9 +21,13 @@ use App\Http\Controllers\DashboardController;
 // Dashboard
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/auth', [LoginController::class, 'auth']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('dashboard', [DashboardController::class, 'index']);
+    Route::get('services', [ServiceController::class, 'index']);
+    Route::get('services/tampilformtambah', [ServiceController::class, 'tampilformtambah']);
+    Route::post('services/simpandata', [ServiceController::class, 'simpandata']);
 });
 // Route::get('/dashboard-ecommerce-dashboard', function () {
 //     return view('pages.dashboard-ecommerce-dashboard', ['type_menu' => 'dashboard']);
